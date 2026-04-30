@@ -1,4 +1,21 @@
 <h1 align="center"> 🐍📊 Corso Completo di Python per Data Analysis <br> Base → Avanzato • Visualizzazione • GUI • AI</h1>
+
+<p align="center">
+  <img src="https://via.placeholder.com/900x250.png?text=Python+Data+Analysis+Course" alt="Banner Corso"/>
+</p>
+
+<p align="center">
+
+<img src="https://img.shields.io/badge/Python-3.10+-blue?logo=python" />
+<img src="https://img.shields.io/badge/Data%20Analysis-Pandas-green?logo=pandas" />
+<img src="https://img.shields.io/badge/Visualization-Matplotlib-orange" />
+<img src="https://img.shields.io/badge/GUI-Tkinter-lightgrey" />
+<img src="https://img.shields.io/badge/AI-Supported-purple" />
+<img src="https://img.shields.io/badge/status-in%20development-yellow" />
+
+</p>
+
+
 <p align="center"> Percorso pratico e progressivo per imparare Python e applicarlo all’analisi dei dati, alla visualizzazione e allo sviluppo di applicazioni reali. </p>
 
 ### 🎯 Scopo del Repository
@@ -136,22 +153,26 @@ Introduzione all’uso dell’AI nel lavoro quotidiano:
     ├── progetti/
     │
     └── README.md
+    
 ### 📊 Dataset 
 
-Il repository include dataset realistici:
-- vendite
-- clienti
-- prodotti
-- dati temporali
+<h2>Il repository include dataset realistici:</h2>
+<dl>
+  <dt>vendite</dt>
+  <dt>clienti</dt>
+  <dt>prodotti</dt>
+  <dt>dati temporali</dt>
+</dl>
 
-### 🎯 Obiettivo: simulare scenari aziendali reali
-
-- 🚀 Progetti Inclusi
-- 📊 Analisi vendite
-- 📈 Dashboard con grafici
-- 🖥️ Applicazione desktop (Tkinter)
-- 🤖 Analisi dati con AI
-- 🛠️ Setup
+<h3>🎯 Obiettivo: simulare scenari aziendali reali</h3>
+<ol type="1">
+  <li>🚀 Progetti Inclusi</li>
+  <li>📊 Analisi vendite</li>
+  <li>📈 Dashboard con grafici</li>
+  <li>🖥️ Applicazione desktop (Tkinter)</li>
+  <li>🤖 Analisi dati con AI</li>
+  <li>🛠️ Setup</li>
+</ol> 
 
 ````
 git clone [https://github.com/tuo-repo/python-data-analysis.git](https://github.com/salisou/Corso_Python_edizione2.git)
@@ -162,9 +183,9 @@ Installazione librerie:
 
     pip install pandas matplotlib seaborn
 
-### 🧠 Competenze Acquisite
+<h3>🧠 Competenze Acquisite</h3> 
 
-## Alla fine del corso sarai in grado di:
+<h4>Alla fine del corso sarai in grado di:</h4> 
 <ol>
   <li>programmare in Python</li>
   <li>analizzare dataset reali</li>
@@ -190,6 +211,7 @@ usare AI senza capire
 saltare le basi
 copiare codice
 non testare
+
 🤝 Contributi
 
 Sono benvenuti:
@@ -210,14 +232,29 @@ Uso libero per scopi didattici.
 🚀 Conclusione
 
 Questo repository è pensato per portarti da:
+<ul>
+  <li>👉 zero conoscenze</li>
+  <li>👉 Data Analyst con Python</li>
+  <li>⭐ Supporto</li>
+</ul>
 
-👉 zero conoscenze
-a
-👉 Data Analyst con Python
 
-⭐ Supporto
 
-Se il progetto ti è utile:
 
-metti una ⭐
-condividilo
+<h2>Se il progetto ti è utile:</h2>
+<ol>
+  <li>metti una ⭐</li>
+  <li>condividilo</li>
+</ol>
+
+![License](https://img.shields.io/badge/license-MIT-green) 
+![Version](https://img.shields.io/badge/version-1.0.0-blue) 
+![Language](https://img.shields.io/badge/language-Python-yellow) 
+![Build Status](https://img.shields.io/github/actions/workflow/status/salisou/Corso_Python_edizione2.git/ci.yml?branch=main)
+
+## ℹ️ Project Information
+
+- **👤 Author:** Moussa
+- **📦 Version:** 1.0.0
+- **📄 License:** MIT
+- **📂 Repository:** [https://github.com/salisou/Corso_Python_edizione2.git](https://github.com/salisou/Corso_Python_edizione2.git)
