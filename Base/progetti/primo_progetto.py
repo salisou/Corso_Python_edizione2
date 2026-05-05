@@ -8,5 +8,4 @@ voti = [int(v) for v in voti]
 
 studenti[nome] = voti
 
-for nome, voti in studenti.items():
-    print(f"Studente: {nome} - Voti: {voti}")
+

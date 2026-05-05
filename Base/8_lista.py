@@ -66,4 +66,4 @@ for spesa in lista_spesa:
     
 
     
-# listaStudenti = ("mario", "luca", "simona", "andrea", "melania") # tupla (non modificabile)nu
+# listaStudenti = ("mario", "luca", "simona", "andrea", "melania") # tupla (non modificabile)

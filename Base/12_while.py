@@ -11,6 +11,8 @@ studenti = {
     "francesca" : 24
 }
 
+studenti["simona"]
+
 
 nomi = list(studenti.keys())
 # voti = list(studenti.values())

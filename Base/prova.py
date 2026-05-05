@@ -92,4 +92,15 @@ for i in range(5): # range(5) -> genera unmeri: 0,1,2,3,4
     print(f"Riga {i}") # parte da 0 => arriva a 4 (NON include 5)
     
 
+variabile = "....." # o ''  
+print()
+lista = []
+dictionary = {}
+tupla = ()
+
+
+path = "C:\\Users\\salis\\OneDrive\\Bureau\\Corso_Python_edizione2\\Base\\prova.py"
+path2 = r"C:\Users\salis\OneDrive\Bureau\Corso_Python_edizione2\Base\prova.py" # r => raw string (stringa grezza)
+print("\n\n============================================\n\n")
+
 
