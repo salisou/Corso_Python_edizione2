@@ -39,3 +39,4 @@ class Sampa:
 
         print(f"Registro Studenti: {studente}")
 Sampa()
+
