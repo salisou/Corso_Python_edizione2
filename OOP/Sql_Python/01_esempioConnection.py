@@ -1,6 +1,6 @@
 """
     select @@SERVERNAME as NomeServer
-    select @@VERSION as Vezione 
+    select @@VERSION as Versione 
 
     Recuperare automaticamente tutte le tabelle da SQL Server con Python
     
@@ -11,11 +11,9 @@
         gestire errori e connessioni in modo professionale
         capire come un Data Analyst esplora un database sconosciuto
 """
- 
-# istallazione del pyodbc e pandas (install pyodbc pandas)
+
 import pyodbc as odbc
 import pandas as pd
-
 
 conn_str = (
     "DRIVER={ODBC Driver 17 for SQL Server};"
@@ -31,55 +29,55 @@ try:
     conn = odbc.connect(conn_str)
     cursor = conn.cursor()
     
+    # Nome server
     values = cursor.execute('SELECT @@SERVERNAME').fetchone()[0]
     print(f"✅ Connesso al server {values}\n")
     
-    print("\n Recupera automaticamente tutte le tabelle ")
+    print("\n📚 Recupero automatico delle tabelle...\n")
     
-    # VERSIONE 1
-    # cursor.execute("""
-    #     SELECT TABLE_NAME 
-    #     FROM INFORMATION_SCHEMA.TABLES
-    #     WHERE TABLE_TYPE='BASE TABLE'
-    #     ORDER BY TABLE_NAME ASC
-    #     """
-    # )
-    
-    # VERSIONE 2
+    # Stored procedure
     cursor.execute("EXEC sp_ListaTabelle")
     
-    # VERSIONE 3 CON PANDAS
-    # df = pd.read_sql("EXEC sp_ListaTabelle", conn)
-    # print(df)
-    
+    # Recupero UNA sola volta
     tabelle = [row[0] for row in cursor.fetchall()]
-    print("📌 Tabella Trovate\n")
     
-    for row in cursor.fetchall():
-         print(f" -> {row[0]}")
+    print("📌 Tabelle trovate:\n")
+    for t in tabelle:
+        print(f" → {t}")
     
-    print("📊 LETTURA TABELLE")
+    print("\n📊 LETTURA RECORD DELLE TABELLE\n")
     
+    # Ciclo su ogni tabella
     for tabella in tabelle:
         print("=========================================")
-        print(f"📌 Tabelle {tabella}")
+        print(f"📌 Tabella: {tabella}")
         print("=========================================")
         
         try:
-            query = f"SELECT * FROM {tabella}"
+            query = f"SELECT TOP 10 * FROM [{tabella}]"
             cursor.execute(query)
-
+            
             colonne = [desc[0] for desc in cursor.description]
-            print(f"Colonne trovate: {colonne}")
-            # =========================
+            print(f"🧩 Colonne: {colonne}")
+            
             rows = cursor.fetchall()
             
+            if not rows:
+                print("⚠️ Nessun record trovato.")
+                continue
             
+            # Evita stampa di colonne binarie
             for row in rows:
-                print(row)
-          # ====================
-        except Exception:
-            print("Attenzione Moussa")
+                valori = []
+                for v in row:
+                    if isinstance(v, bytes):
+                        valori.append("<BINARY DATA>")
+                    else:
+                        valori.append(v)
+                print(" →", valori)
+
+        except Exception as e:
+            print(f"⚠️ Errore nella tabella {tabella}: {e}")
         
 except Exception as e:
     print("❌ Errore di connessione:")
@@ -87,9 +85,9 @@ except Exception as e:
 
 finally:
     try:
-        print("Chiusura connessione...\n")
+        print("\n🔐 Chiusura connessione...")
         conn.close()
-        print("🔐 Connessione chiusa.")
+        print("Connessione chiusa.")
     except:
-        print("Riprova!")
+        print("⚠️ Impossibile chiudere la connessione.")
         pass
