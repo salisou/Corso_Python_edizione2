@@ -12,8 +12,10 @@ class CharApp(tk.Tk):
         self.title("Application Grafic Excel")
         self.geometry("1000x650")
         
+        
         self.df = None # DataFrame vuoto
         
+        # UI
         self.create_widgets()
     
     def create_widgets(self):
@@ -48,16 +50,16 @@ class CharApp(tk.Tk):
         """Carica il file Excel e la salva ne DataFrame"""
         file_Path = filedialog.askopenfilename(
             title="Seleziona file Excel",
-            filetypes=[("Excel files", "*.xlsx", "*.xls")]
+            filetypes=[("Excel files", "*.xlsx", ".xls")]
         )
         
         if not file_Path:
-            return
+            return "Attenzione controlla il tipo del file"
 
         try:
             self.df = pd.read_excel(file_Path)
             messagebox.showinfo("Successo", "File Excel caricato con successo!")
-            print(self.df.head())
+            print(self.df)
         except Exception as e:
             messagebox.showerror("Errero", f"Inpossibile caricare il file \n{e}")
 
@@ -71,12 +73,30 @@ class CharApp(tk.Tk):
             for widget in self.chart_area.winfo_children():
                 widget.destroy()
             
-            # ============ Da continuare
+            
+            fig, ax = plt.subplots(figsize=(8, 5))
             
             #Usa le prime due colonne del DataFrame
             col1 = self.df.columns[0]
             col2 = self.df.columns[1]
             
+            chart = self.chart_type.get()
+            
+            # "Bar Chart", "Line Chart", "Pie Chart", 
+            if chart == "Bar Chart":
+                ax.bar(self.df[col1], self.df[col2], color="royalblue")
+                ax.set_title("Bar Chart")
+            elif chart == "Line Chart":
+                ax.plot(self.df[col1], self.df[col2], marker="o", color="green")
+                ax.set_title("Line Chart")
+            elif chart == "Pie Chart":
+                ax.pie(self.df[col2], labels=self.df[col1], autopct="%1.1f%%")
+                ax.set_title("Pie Chart")
+
+            # Inserimento grafico in Tkinter
+            canvas = FigureCanvasTkAgg(fig, master=self.chart_area)
+            canvas.draw()
+            canvas.get_tk_widget().pack(fill="both", expand=True)
 
         
         
